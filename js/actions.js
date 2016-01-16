@@ -24,6 +24,7 @@ var fn = {
             alert("DISPOSITIVO CONECTADO");
         }else{
             //GUARDAR LAS RESERVAS EN UN DISPOSITIVO
+            alert("DISPOSITIVO DESCONECTADO");
             almacen.guardarReserva(tipoHabitacion,numPersonas,numHabitaciones,numDias);
         }
         
