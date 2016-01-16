@@ -114,4 +114,4 @@ var fn = {
 
 $(fn.deviceready);
 
-$(fn.init);
+//$(fn.init);
