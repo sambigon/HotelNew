@@ -1,9 +1,9 @@
 var fn = {
 	init: function(){
 
-		// if(!fn.estaRegistrado()){
-		// 	window.location.href = "#registro";
-		// }
+		 if(!fn.estaRegistrado()){
+		 	window.location.href = "#registro";
+		 }
 
 		// BOTONES
 		$("#registro ul[data-role  = listview] a").tap(mc.start);
@@ -19,9 +19,9 @@ var fn = {
         var numHabitaciones = $("#resHab").val();
         var numDias = $("#resDias").val();
         
-        if(false){
+        if(conexion.estaConectado){
             //SI ESTA CONECTADO ENVIAR LA RESERVACION
-            
+            alert("DISPOSITIVO CONECTADO");
         }else{
             //GUARDAR LAS RESERVAS EN UN DISPOSITIVO
             almacen.guardarReserva(tipoHabitacion,numPersonas,numHabitaciones,numDias);
@@ -111,6 +111,6 @@ var fn = {
 	}
 };
 
-//$(fn.deviceready);
+$(fn.deviceready);
 
 $(fn.init);
