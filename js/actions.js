@@ -19,7 +19,7 @@ var fn = {
         var numHabitaciones = $("#resHab").val();
         var numDias = $("#resDias").val();
         
-        if(conexion.estaConectado){
+        if(conexion.estaConectado()){
             //SI ESTA CONECTADO ENVIAR LA RESERVACION
             alert("DISPOSITIVO CONECTADO");
         }else{
@@ -108,7 +108,7 @@ var fn = {
 				navigator.notification.alert("Error al enviar datos al servidor, Mensaje: "+msg);
 			}
 		});
-	}
+	},
 };
 
 $(fn.deviceready);
