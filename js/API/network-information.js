@@ -1,10 +1,10 @@
 var conexion = {
   estaConectado: function(){
         if (navigator.connection.type!="Connection.NONE"){
-            return false;
+            return true;
         }
         else{
-            return  true;
+            return  false;
         }
 	},  
 };
