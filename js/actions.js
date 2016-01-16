@@ -27,7 +27,7 @@ var fn = {
             almacen.guardarReserva(tipoHabitacion,numPersonas,numHabitaciones,numDias);
         }
         
-    }
+    },
     
     nr1Siguiente : function (){
         if ($(this).index()==1){
