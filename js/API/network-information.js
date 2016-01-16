@@ -6,5 +6,5 @@ var conexion = {
         else{
             return  false;
         }
-	},  
+	}
 };
