@@ -18,9 +18,7 @@ var almacen = {
   },
     tablaReservas: function(tx){//tx es el objeto que permite manejar la base de datos
         tx.executeSql('CREATE TABLE IF NOT EXITS reservas (id INTEGER PRIMARY KEY,tipoh,nump, numh, numd)');
-        tx.executeSql('Insert into reservas (tipoh,nump,numh,numd) values ("' + almacen.tipoHabitacion + 
-                      '","' + almacen.numPersonas + '","' + almacen.numHabitaciones + '","' +
-                      almacen.numDias + '")');
+        tx.executeSql('Insert into reservas (tipoh,nump,numh,numd) values ("' + almacen.tipoHabitacion +                       '","' + almacen.numPersonas + '","' + almacen.numHabitaciones + '","' + almacen.numDias + '")');
     },
     confirmarlaReserva: function(){
         alert('Reservar guardada en el dispositivo, esperando conexión para sincronizacion con el servidor');
