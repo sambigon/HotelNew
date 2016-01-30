@@ -1,0 +1,10 @@
+.tabla-historial,
+.tabla-historial th,
+.tabla-historial tr,
+.tabla-historial td{
+    font-size: 10px;
+    border: 1px solid black;
+    border-collapse: collapse;
+    padding: 2px 3px;
+    /*2px arriba y abajo  3px izquiera derecha*/
+}
