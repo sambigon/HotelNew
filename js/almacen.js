@@ -34,7 +34,7 @@ var almacen = {
     },
     tablaHistorial: function(tx){
         tx.executeSql('CREATE TABLE IF NOT EXISTS historial (id INTEGER PRIMARY KEY,tipoh,nump, numh, numd)');
-        tx.executeSql('Insert into historial (tipoh,nump,numh,numd) values ("' + almacen.tipoHabitacion + '","' + almacen.numPersonas + '","' + almacen.numHabitaciones + '","' + almacen.numDias + '")');
+        tx.executeSql('INSERT INTO historial (tipoh,nump,numh,numd) values ("' + almacen.tipoHabitacion + '","' + almacen.numPersonas + '","' + almacen.numHabitaciones + '","' + almacen.numDias + '")');
     },
     confirmarHistorial: function(){
         alert("Reserva guardada en el historial");
