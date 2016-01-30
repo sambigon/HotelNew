@@ -29,11 +29,11 @@ var fn = {
         
         if(conexion.estaConectado()){
             //SI ESTA CONECTADO ENVIAR LA RESERVACION
-            alert("DISPOSITIVO CONECTADO");
+            //alert("DISPOSITIVO CONECTADO");
             fn.enviarReservas(tipoHabitacion,numPersonas,numHabitaciones,numDias);
         }else{
             //GUARDAR LAS RESERVAS EN UN DISPOSITIVO
-            alert("DISPOSITIVO DESCONECTADO");
+            //alert("DISPOSITIVO DESCONECTADO");
             almacen.guardarReserva(tipoHabitacion,numPersonas,numHabitaciones,numDias);
         }
         
