@@ -31,12 +31,17 @@ var fn = {
             //SI ESTA CONECTADO ENVIAR LA RESERVACION
             //alert("DISPOSITIVO CONECTADO");
             fn.enviarReservas(tipoHabitacion,numPersonas,numHabitaciones,numDias);
+            
         }else{
             //GUARDAR LAS RESERVAS EN UN DISPOSITIVO
             //alert("DISPOSITIVO DESCONECTADO");
             almacen.guardarReserva(tipoHabitacion,numPersonas,numHabitaciones,numDias);
         }
-
+        
+        $("#nr1 ul[data-role = listview] a").css("background-color","");
+        $("#nr1").removeAttr("th");
+        window.location.href="#home";
+        
     },
 
     sincronizarReservasPendientes: function(){
