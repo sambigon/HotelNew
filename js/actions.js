@@ -12,11 +12,11 @@ var fn = {
         $("#nr1 div[data-role = navbar] li").tap(fn.nr1Siguiente);
         $("#nr2 div[data-role = footer] a").tap(fn.nr2EnviarRegistro);
         $("#botonHistorial").tap(fn.mostrarHistorial);
-        
+
         //ASOCIAR EVENTO PARA SINCRONIZAR.
         document.addEventListener("online",fn.sincronizarReservasPendientes,false);
 	},
-    
+
     mostrarHistorial: function(){
         almacen.registrosHistorial();
     },
@@ -26,7 +26,7 @@ var fn = {
         var numPersonas = $("#resPer").val();
         var numHabitaciones = $("#resHab").val();
         var numDias = $("#resDias").val();
-        
+
         if(conexion.estaConectado()){
             //SI ESTA CONECTADO ENVIAR LA RESERVACION
             //alert("DISPOSITIVO CONECTADO");
@@ -36,14 +36,14 @@ var fn = {
             //alert("DISPOSITIVO DESCONECTADO");
             almacen.guardarReserva(tipoHabitacion,numPersonas,numHabitaciones,numDias);
         }
-        
+
     },
-    
+
     sincronizarReservasPendientes: function(){
         //ALMACEN DEBE DE ENVIARLAS
         almacen.leerPendientes();
     },
-    
+
     enviarReservas: function(th,np,nh,nd){
         alert(th+"-"+np+"-"+nh+"-"+nd);
         $.ajax({
@@ -61,16 +61,16 @@ var fn = {
 
 		}).done(function(respuesta){
 			if(respuesta == 1){
-				//Agregar datos la 
+				//Agregar datos la
                 almacen.agregarHistorial(th,np,nh,nd);
 			}else{
 				alert("Error al guardar reserva en el servidor");
 			}
-		});        
+		});
     },
 
-	
-    
+
+
     nr1Siguiente : function(){
         if ($(this).index()==1){
             if($("#nr1").attr("th")!=undefined){
@@ -80,7 +80,7 @@ var fn = {
             }
         }
     },
-    
+
 	seleccionarTipo: function(){
         console.log("1231231231");
         $("#nr1 ul[data-role = listview] a").css("background-color","");

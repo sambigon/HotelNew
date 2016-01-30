@@ -24,7 +24,7 @@ var almacen = {
         alert('Reservar guardada en el dispositivo, esperando conexión para sincronizacion con el servidor');
     },
     agregarHistorial: function(th,np,nh,nd){
-        almacen.db = window.opendDatabase("hotelApp", "1.0", "HotelApp",2000);
+        almacen.db = window.openDatabase("hotelApp", "1.0", "HotelApp",2000);
         almacen.tipoHabitacion=th;
         almacen.numPersonas=np;
         almacen.numHabitaciones=nh;
