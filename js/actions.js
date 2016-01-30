@@ -45,6 +45,7 @@ var fn = {
     },
     
     enviarReservas: function(th,np,nh,nd){
+        alert(th+"-"+np+"-"+nh+"-"+nd);
         $.ajax({
 			method: "POST",
 			url: "http://carlos.igitsoft.com/apps/test.php",
@@ -150,6 +151,6 @@ var fn = {
 	},
 };
 
-$(fn.deviceready);
+//$(fn.deviceready);
 
-//$(fn.init);
+$(fn.init);
