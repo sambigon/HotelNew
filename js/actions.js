@@ -145,6 +145,6 @@ var fn = {
 	},
 };
 
-//$(fn.deviceready);
+$(fn.deviceready);
 
-$(fn.init);
+//$(fn.init);
