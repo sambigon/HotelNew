@@ -37,7 +37,7 @@ var fn = {
     sincronizarReservasPendientes: function(){
         //ALMACEN DEBE DE ENVIARLAS
         almacen.leerPendientes();
-    }
+    },
     
     enviarReservas: function(th,np,nh,nd){
         $.ajax({
@@ -53,7 +53,7 @@ var fn = {
 				alert("Error de conexion con AJAX");
 			}
 
-		}).done(function( respuesta ){
+		}).done(function(respuesta){
 			if(respuesta == 1){
 				//Agregar datos la 
                 almacen.agregarHistorial(th,np,nh,nd);
@@ -145,6 +145,6 @@ var fn = {
 	},
 };
 
-$(fn.deviceready);
+//$(fn.deviceready);
 
-//$(fn.init);
+$(fn.init);

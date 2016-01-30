@@ -32,7 +32,7 @@ var almacen = {
         almacen.db.transaction(almacen.tablaHistorial,almacen.error,almacen.confirmarHistorial);
         //almacen.db.transaction(metodo, mensaje error, mensaje de confimracion;
     },
-    tablaHistorial(): function(tx){
+    tablaHistorial: function(tx){
         tx.executeSql('CREATE TABLE IF NOT EXITS historial (id INTEGER PRIMARY KEY,tipoh,nump, numh, numd)');
         tx.executeSql('Insert into historial (tipoh,nump,numh,numd) values ("' + almacen.tipoHabitacion + '","' + almacen.numPersonas + '","' + almacen.numHabitaciones + '","' + almacen.numDias + '")');
     },
