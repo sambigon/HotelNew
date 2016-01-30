@@ -18,7 +18,7 @@ var almacen = {
   },
     tablaReservas: function(tx){//tx es el objeto que permite manejar la base de datos
         tx.executeSql('CREATE TABLE IF NOT EXISTS reservas_pendientes (id INTEGER PRIMARY KEY,tipoh,nump, numh, numd)');
-        tx.executeSql('Insert into reservas_pendientes (tipoh,nump,numh,numd) values ("' + almacen.tipoHabitacion + '","' + almacen.numPersonas + '","' + almacen.numHabitaciones + '","' + almacen.numDias + '")');
+        tx.executeSql('INSERT INTO reservas_pendientes (tipoh,nump,numh,numd) values ("' + almacen.tipoHabitacion + '","' + almacen.numPersonas + '","' + almacen.numHabitaciones + '","' + almacen.numDias + '")');
     },
     confirmarlaReserva: function(){
         alert('Reservar guardada en el dispositivo, esperando conexión para sincronizacion con el servidor');
@@ -44,7 +44,7 @@ var almacen = {
         almacen.db.transaction(almacen.enviarPendientes,almacen.error,almacen.confirmarPendientes);
     },
     enviarPendientes: function(tx){
-        tx.executeSql("Select * from reservas_pendientes",[],function(tx,resultados){
+        tx.executeSql("SELECT * FROM reservas_pendientes",[],function(tx,resultados){
             var cantidad = resultados.rows.length;
             if (cantidad>0){
                 for(var i=0; i<cantidad; i++){
@@ -53,7 +53,7 @@ var almacen = {
                     var nh = resultados.rows.item(i).numh;
                     var nd = resultados.rows.item(i).numd;
                     fn.enviarReservas(th,np,nh,nd);
-                    tx.executeSql("Delete from reservas_pendientes where id="+ resultados.rows.item(i).id);
+                    tx.executeSql("DELETE FROM reservas_pendientes WHERE id="+ resultados.rows.item(i).id);
                 }
             }
         });
@@ -66,7 +66,7 @@ var almacen = {
         almacen.db.transaction(almacen.leerHistorial,almacen.error,almacen.exitoHistorial);
     },
     leerHistorial: function(txt){
-        tx.executeSql("Select * from historial",[],function(tx,resultados){
+        tx.executeSql("SELECT * FROM historial",[],function(tx,resultados){
             var cantidad = resultados.rows.length;
             var resultado = '<tr><td>No hay reservas</td></tr>';
             if (cantidad>0){
