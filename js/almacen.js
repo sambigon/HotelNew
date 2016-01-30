@@ -17,7 +17,7 @@ var almacen = {
       alert("Error al guardar receta: " + error.code)
   },
     tablaReservas: function(tx){//tx es el objeto que permite manejar la base de datos
-        tx.executeSql('CREATE TABLE IF NOT EXITS reservas_pendientes (id INTEGER PRIMARY KEY,tipoh,nump, numh, numd)');
+        tx.executeSql('CREATE TABLE IF NOT EXISTS reservas_pendientes (id INTEGER PRIMARY KEY,tipoh,nump, numh, numd)');
         tx.executeSql('Insert into reservas_pendientes (tipoh,nump,numh,numd) values ("' + almacen.tipoHabitacion + '","' + almacen.numPersonas + '","' + almacen.numHabitaciones + '","' + almacen.numDias + '")');
     },
     confirmarlaReserva: function(){
@@ -33,7 +33,7 @@ var almacen = {
         //almacen.db.transaction(metodo, mensaje error, mensaje de confimracion;
     },
     tablaHistorial: function(tx){
-        tx.executeSql('CREATE TABLE IF NOT EXITS historial (id INTEGER PRIMARY KEY,tipoh,nump, numh, numd)');
+        tx.executeSql('CREATE TABLE IF NOT EXISTS historial (id INTEGER PRIMARY KEY,tipoh,nump, numh, numd)');
         tx.executeSql('Insert into historial (tipoh,nump,numh,numd) values ("' + almacen.tipoHabitacion + '","' + almacen.numPersonas + '","' + almacen.numHabitaciones + '","' + almacen.numDias + '")');
     },
     confirmarHistorial: function(){
