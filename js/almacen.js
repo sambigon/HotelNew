@@ -40,7 +40,7 @@ var almacen = {
         alert("Reserva guardada en el historial");
     },
     leerPendientes: function(){
-        almacen.db = window.opendDatabase("hotelApp", "1.0", "HotelApp",2000);
+        almacen.db = window.openDatabase("hotelApp", "1.0", "HotelApp",2000);
         almacen.db.transaction(almacen.enviarPendientes,almacen.error,almacen.confirmarPendientes);
     },
     enviarPendientes: function(tx){
@@ -62,7 +62,7 @@ var almacen = {
         alert("Sincronizado correctamente con el servidor");
     },
     registrosHistorial: function(tx){
-        almacen.db = window.opendDatabase("hotelApp", "1.0", "HotelApp",2000);
+        almacen.db = window.openDatabase("hotelApp", "1.0", "HotelApp",2000);
         almacen.db.transaction(almacen.leerHistorial,almacen.error,almacen.exitoHistorial);
     },
     leerHistorial: function(txt){
