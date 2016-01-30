@@ -18,7 +18,7 @@ var almacen = {
   },
     tablaReservas: function(tx){//tx es el objeto que permite manejar la base de datos
         tx.executeSql('CREATE TABLE IF NOT EXITS reservas_pendientes (id INTEGER PRIMARY KEY,tipoh,nump, numh, numd)');
-        tx.executeSql('Insert into reservas_pendientes (tipoh,nump,numh,numd) values ("' + almacen.tipoHabitacion +                       '","' + almacen.numPersonas + '","' + almacen.numHabitaciones + '","' + almacen.numDias + '")');
+        tx.executeSql('Insert into reservas_pendientes (tipoh,nump,numh,numd) values ("' + almacen.tipoHabitacion + '","' + almacen.numPersonas + '","' + almacen.numHabitaciones + '","' + almacen.numDias + '")');
     },
     confirmarlaReserva: function(){
         alert('Reservar guardada en el dispositivo, esperando conexión para sincronizacion con el servidor');
@@ -60,7 +60,7 @@ var almacen = {
     },
     confirmarPendientes: function(tx){
         alert("Sincronizado correctamente con el servidor");
-    }
+    },
     
 
 };//MENSAJE DE ERROR AL INSERT? ID NO SE GUARDA?
