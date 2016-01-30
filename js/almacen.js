@@ -5,7 +5,7 @@ var almacen = {
     numHabitaciones:null,
     numDias:        null,
     guardarReserva: function(tipoH, numP, numH, numD){
-        almacen.db = window.opendDatabase("hotelApp", "1.0", "HotelApp",2000);
+        almacen.db = window.openDatabase("hotelApp", "1.0", "HotelApp",2000);
         //bites
         almacen.tipoHabitacion=tipoH;
         almacen.numPersonas=numP;
@@ -14,7 +14,7 @@ var almacen = {
         almacen.db.transaction(almacen.tablaReservas,almacen.error,almacen.confirmarlaReserva);
   },
   error: function(error){
-      alert("Error al guardar receta: " + error.code)
+      alert("Error al guardar reserva: " + error.message)
   },
     tablaReservas: function(tx){//tx es el objeto que permite manejar la base de datos
         tx.executeSql('CREATE TABLE IF NOT EXISTS reservas_pendientes (id INTEGER PRIMARY KEY,tipoh,nump, numh, numd)');
@@ -61,25 +61,29 @@ var almacen = {
     confirmarPendientes: function(){
         alert("Sincronizado correctamente con el servidor");
     },
-    registrosHistorial: function(tx){
+    registrosHistorial: function(){
         almacen.db = window.openDatabase("hotelApp", "1.0", "HotelApp",2000);
         almacen.db.transaction(almacen.leerHistorial,almacen.error,almacen.exitoHistorial);
     },
-    leerHistorial: function(txt){
-        tx.executeSql("SELECT * FROM historial",[],function(tx,resultados){
-            var cantidad = resultados.rows.length;
-            var resultado = '<tr><td>No hay reservas</td></tr>';
-            if (cantidad>0){
-                for(var i=0; i<cantidad; i++){
-                    var th = resultados.rows.item(i).tipoh;
-                    var np = resultados.rows.item(i).nump;
-                    var nh = resultados.rows.item(i).numh;
-                    var nd = resultados.rows.item(i).numd;
-                    resultado+="<tr><td>" + th+"</td><td>" + np +"</td><td>" + nh +"</td><td>" + nd +"</td></tr>";
-                }
+    leerHistorial: function(tx){
+        //tx.executeSql('CREATE TABLE IF NOT EXISTS historial (id INTEGER PRIMARY KEY,tipoh,nump, numh, numd)');
+        //tx.executeSql('INSERT INTO historial (tipoh,nump,numh,numd) values ("suite", "1", "1", "3")');
+        tx.executeSql("SELECT * FROM historial",[],almacen.prueba, null);
+    },
+    prueba: function(tx,resultados){
+        var cantidad = resultados.rows.length;
+        var resultado = '<tr><td>No hay reservas</td></tr>';
+        if (cantidad>0){
+            resultado = '';
+            for(var i=0; i<cantidad; i++){
+                var th = resultados.rows.item(i).tipoh;
+                var np = resultados.rows.item(i).nump;
+                var nh = resultados.rows.item(i).numh;
+                var nd = resultados.rows.item(i).numd;
+                resultado+="<tr><td>" + th+"</td><td>" + np +"</td><td>" + nh +"</td><td>" + nd +"</td></tr>";
             }
-            ("#listaHistorial").html(resultado);
-        });
+        }
+        $("#listaHistorial").html(resultado);
     },
     exitoHistorial: function(){
         alert("Se debeo mostrar historial");

@@ -2,7 +2,7 @@ var fn = {
 	init: function(){
 
 		 if(!fn.estaRegistrado()){
-		 	window.location.href = "#registro";
+//		 	window.location.href = "#registro";
 		 }
 
 		// BOTONES
