@@ -11,10 +11,15 @@ var fn = {
 		$("#nr1 ul[data-role = listview] a").tap(fn.seleccionarTipo);
         $("#nr1 div[data-role = navbar] li").tap(fn.nr1Siguiente);
         $("#nr2 div[data-role = footer] a").tap(fn.nr2EnviarRegistro);
+        $("#boton historial").tap(fn.mostrarHistorial);
         
         //ASOCIAR EVENTO PARA SINCRONIZAR.
         document.addEventListener("online",fn.sincronizarReservasPendientes,false);
 	},
+    
+    mostrarHistorial: function(){
+        almacen.registrosHistorial();
+    },
 
     nr2EnviarRegistro : function (){
         var tipoHabitacion = $("#nr1").attr("th");

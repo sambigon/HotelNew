@@ -58,9 +58,32 @@ var almacen = {
             }
         });
     },
-    confirmarPendientes: function(tx){
+    confirmarPendientes: function(){
         alert("Sincronizado correctamente con el servidor");
     },
-    
+    registrosHistorial: function(tx){
+        almacen.db = window.opendDatabase("hotelApp", "1.0", "HotelApp",2000);
+        almacen.db.transaction(almacen.leerHistorial,almacen.error,almacen.exitoHistorial);
+    },
+    leerHistorial: function(txt){
+        tx.executeSql("Select * from historial",[],function(tx,resultados){
+            var cantidad = resultados.rows.length;
+            var resultado = '<tr><td>No hay reservas</td></tr>';
+            if (cantidad>0){
+                for(var i=0; i<cantidad; i++){
+                    var th = resultados.rows.item(i).tipoh;
+                    var np = resultados.rows.item(i).nump;
+                    var nh = resultados.rows.item(i).numh;
+                    var nd = resultados.rows.item(i).numd;
+                    resultado+="<tr><td>" + th+"</td><td>" + np +"</td><td>" + nh +"</td><td>" + nd +"</td></tr>";
+                }
+            }
+            ("#listaHistorial").html(resultado);
+        });
+    },
+    exitoHistorial: function(){
+        alert("Se debeo mostrar historial");
+    }
+
 
 };//MENSAJE DE ERROR AL INSERT? ID NO SE GUARDA?
