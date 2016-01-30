@@ -54,10 +54,10 @@ var fn = {
 				habitaciones: nh,
 				personas: np,
                 dias: nd
-			},
+			}/*,
 			error: function(){
 				alert("Error de conexion con AJAX");
-			}
+			}*/
 
 		}).done(function(respuesta){
 			if(respuesta == 1){
@@ -68,6 +68,8 @@ var fn = {
 			}
 		});        
     },
+
+	
     
     nr1Siguiente : function(){
         if ($(this).index()==1){
