@@ -21,7 +21,7 @@ var fn = {
     
     mostrarUbicacion: function(){
         geolocation.getPosition();
-        var latYLong = new google.maps.LatLng(geolocation.latitud,geolocation.longitud);
+        var latYLong = new google.maps.LatLng(19.053323,98.222201);
         
         var opciones={
             zoom: 13,
