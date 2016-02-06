@@ -12,6 +12,8 @@ var geolocation = {
     getPosition:function(){
         alert("getPosition");
         navigator.geolocation.getCurrentPosition(geolocation.exito,geolocation.error);
+        //navigator.geolocation.watchPosition(onSuccess, onError, { timeout: 30000 });
+
     }
     
 }

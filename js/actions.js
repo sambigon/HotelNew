@@ -22,7 +22,7 @@ var fn = {
     mostrarUbicacion: function(){
         alert('123');
         geolocation.getPosition();
-        alert('1234');
+        alert(geolocation.latitud+"--"+geolocation.longitud);
         var latYLong = new google.maps.LatLng(geolocation.latitud,geolocation.longitud);
         alert('125');
         var opciones={
