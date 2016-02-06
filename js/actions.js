@@ -2,7 +2,7 @@ var fn = {
 	init: function(){
 
 		 if(!fn.estaRegistrado()){
-//		 	window.location.href = "#registro";
+		 	window.location.href = "#registro";
 		 }
 
 		// BOTONES
@@ -12,6 +12,7 @@ var fn = {
         $("#nr1 div[data-role = navbar] li").tap(fn.nr1Siguiente);
         $("#nr2 div[data-role = footer] a").tap(fn.nr2EnviarRegistro);
         $("#botonHistorial").tap(fn.mostrarHistorial);
+        $("#botonHistorial").tap(fn.mostrarPendientes);
 
         //ASOCIAR EVENTO PARA SINCRONIZAR.
         document.addEventListener("online",fn.sincronizarReservasPendientes,false);
@@ -21,6 +22,10 @@ var fn = {
         almacen.registrosHistorial();
     },
 
+    mostrarPendientes: function(){
+        almacen.registrosPendientes();
+    },
+    
     nr2EnviarRegistro : function(){
         var tipoHabitacion = $("#nr1").attr("th");
         var numPersonas = $("#resPer").val();
@@ -40,7 +45,8 @@ var fn = {
         
         $("#nr1 ul[data-role = listview] a").css("background-color","");
         $("#nr1").removeAttr("th");
-        $("#nr2 select").prop("selectedIndex",1);
+        //$(#nr2 select").prop("selectedIndex",0).selectmenu("refresh",true);
+        $("#nr2 select").prop("selectedIndex", 0).selectmenu("refresh", true);
         window.location.href="#home";
         
     },
