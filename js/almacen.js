@@ -41,6 +41,7 @@ var almacen = {
     },
     leerPendientes: function(){
         alert('Entra a leer');
+        //almacen.db = window.openDatabase("hotelApp", "1.0", "HotelApp",2000);
         almacen.db = window.openDatabase("hotelApp", "1.0", "HotelApp",2000);
         almacen.db.transaction(almacen.enviarPendientes,almacen.error,almacen.confirmarPendientes);
     },
@@ -58,7 +59,8 @@ var almacen = {
                     tx.executeSql("DELETE FROM reservas_pendientes WHERE id="+ resultados.rows.item(i).id);
                 }
             }
-        });
+        },
+        almacen.error);
         alert('Termina Select');
     },
     confirmarPendientes: function(){
