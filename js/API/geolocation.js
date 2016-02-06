@@ -10,6 +10,7 @@ var geolocation = {
         geolocation.longitud=position.coords.longitude;
     },
     getPosition:function(){
+        alert("getPosition");
         navigator.geolocation.getCurrentPosition(geolocation.exito,geolocation.error);
     }
     

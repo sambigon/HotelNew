@@ -23,7 +23,7 @@ var fn = {
         alert('123');
         geolocation.getPosition();
         alert('1234');
-        var latYLong = new google.maps.LatLng(19.053323,98.222201);
+        var latYLong = new google.maps.LatLng(geolocation.latitud,geolocation.longitud);
         alert('125');
         var opciones={
             zoom: 13,
