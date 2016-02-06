@@ -13,10 +13,28 @@ var fn = {
         $("#nr2 div[data-role = footer] a").tap(fn.nr2EnviarRegistro);
         $("#botonHistorial").tap(fn.mostrarHistorial);
         $("#botonPendientes").tap(fn.mostrarPendientes);
+        $("#botonUbicacion").tap(fn.mostrarUbicacion);
 
         //ASOCIAR EVENTO PARA SINCRONIZAR.
         document.addEventListener("online",fn.sincronizarReservasPendientes,false);
 	},
+    
+    mostrarUbicacion: function(){
+        geolocation.getPosition();
+        var latYLong = new google.maps.LatLng(geolocation.latitud,geolocation.longitud);
+        
+        var opciones={
+            zoom: 13,
+            center: latYLong,
+            mapTypeId: google.maps.MapTypeId.SATELLITE            
+        };
+        
+        var map = new google.maps.Map(document.getElementById('canvas'), opciones);
+        var market = new google.maps.Market({
+           position: latYLong,
+           title: "Mi ubicacion"
+        });
+    },
 
     mostrarHistorial: function(){
         almacen.registrosHistorial();
