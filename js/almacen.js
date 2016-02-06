@@ -93,9 +93,25 @@ var almacen = {
     leerPendientes: function(tx){
         //tx.executeSql('CREATE TABLE IF NOT EXISTS historial (id INTEGER PRIMARY KEY,tipoh,nump, numh, numd)');
         //tx.executeSql('INSERT INTO historial (tipoh,nump,numh,numd) values ("suite", "1", "1", "3")');
-        tx.executeSql("SELECT * FROM reservas_pendientes",[],almacen.prueba, null);
+        tx.executeSql('CREATE TABLE IF NOT EXISTS reservas_pendientes (id INTEGER PRIMARY KEY,tipoh,nump, numh, numd)');
+        tx.executeSql("SELECT * FROM reservas_pendientes",[],almacen.pruebab, null);
     },
     
+    pruebab: function(tx,resultados){
+        var cantidad = resultados.rows.length;
+        var resultado = '<tr><td>No hay reservas</td></tr>';
+        if (cantidad>0){
+            resultado = '';
+            for(var i=0; i<cantidad; i++){
+                var th = resultados.rows.item(i).tipoh;
+                var np = resultados.rows.item(i).nump;
+                var nh = resultados.rows.item(i).numh;
+                var nd = resultados.rows.item(i).numd;
+                resultado+="<tr><td>" + th+"</td><td>" + np +"</td><td>" + nh +"</td><td>" + nd +"</td></tr>";
+            }
+        }
+        $("#listaPendiente").html(resultado);
+    },
     
     exitoHistorial: function(){
         alert("Se debeo mostrar historial");
