@@ -42,8 +42,8 @@ var almacen = {
     leerPendientes: function(){
         alert('Entra a leer');
         //almacen.db = window.openDatabase("hotelApp", "1.0", "HotelApp",2000);
-        almacen.db = window.openDatabase("hotelApp", "1.0", "HotelApp",2000);
-        almacen.db.transaction(almacen.enviarPendientes,almacen.error,almacen.confirmarPendientes);
+        //almacen.db = window.openDatabase("hotelApp", "1.0", "HotelApp",2000);
+        //almacen.db.transaction(almacen.enviarPendientes,almacen.error,almacen.confirmarPendientes);
     },
     enviarPendientes: function(tx){
         alert('Entra a enviar');
