@@ -6,6 +6,7 @@ var geolocation = {
     alert("error:" + error.message);
     },
     exito: function(position){
+        alert(position);
         geolocation.latitud=position.coords.latitude;
         geolocation.longitud=position.coords.longitude;
     },
@@ -15,5 +16,4 @@ var geolocation = {
         //navigator.geolocation.watchPosition(onSuccess, onError, { timeout: 30000 });
 
     }
-    
 }
