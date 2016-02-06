@@ -88,9 +88,9 @@ var almacen = {
     
     registrosPendientes: function(){
         almacen.db = window.openDatabase("hotelApp", "1.0", "HotelApp",2000);
-        almacen.db.transaction(almacen.leerPendienes,almacen.error,almacen.exitoHistorial);
+        almacen.db.transaction(almacen.leerPendientes,almacen.error,almacen.exitoHistorial);
     },
-    leerPendienes: function(tx){
+    leerPendientes: function(tx){
         //tx.executeSql('CREATE TABLE IF NOT EXISTS historial (id INTEGER PRIMARY KEY,tipoh,nump, numh, numd)');
         //tx.executeSql('INSERT INTO historial (tipoh,nump,numh,numd) values ("suite", "1", "1", "3")');
         tx.executeSql("SELECT * FROM reservas_pendientes",[],almacen.prueba, null);
