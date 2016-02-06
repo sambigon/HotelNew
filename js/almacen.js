@@ -44,6 +44,7 @@ var almacen = {
         almacen.db.transaction(almacen.enviarPendientes,almacen.error,almacen.confirmarPendientes);
     },
     enviarPendientes: function(tx){
+        alert('Entra a enviar');
         tx.executeSql("SELECT * FROM reservas_pendientes",[],function(tx,resultados){
             var cantidad = resultados.rows.length;
             if (cantidad>0){
@@ -57,6 +58,7 @@ var almacen = {
                 }
             }
         });
+        alert('Termina Select');
     },
     confirmarPendientes: function(){
         alert("Sincronizado correctamente con el servidor");
