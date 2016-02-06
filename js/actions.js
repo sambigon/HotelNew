@@ -37,8 +37,8 @@ var fn = {
            title: "Mi ubicacion"
         });
         alert('127');
-    },
-
+    },    
+    
     mostrarHistorial: function(){
         almacen.registrosHistorial();
     },
