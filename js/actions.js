@@ -53,6 +53,7 @@ var fn = {
 
     sincronizarReservasPendientes: function(){
         //ALMACEN DEBE DE ENVIARLAS
+        alert('Llama a sincronizar');
         almacen.leerPendientes();
     },
 
