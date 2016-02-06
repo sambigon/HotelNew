@@ -42,8 +42,8 @@ var almacen = {
     leerPendientes: function(){
         alert('Entra a leer');
         //almacen.db = window.openDatabase("hotelApp", "1.0", "HotelApp",2000);
-        //almacen.db = window.openDatabase("hotelApp", "1.0", "HotelApp",2000);
-        //almacen.db.transaction(almacen.enviarPendientes,almacen.error,almacen.confirmarPendientes);
+        almacen.db = window.openDatabase("hotelApp", "1.0", "HotelApp",2000);
+        almacen.db.transaction(almacen.enviarPendientes,almacen.error,almacen.confirmarPendientes);
     },
     enviarPendientes: function(tx){
         alert('Entra a enviar');
@@ -93,9 +93,9 @@ var almacen = {
     
     registrosPendientes: function(){
         almacen.db = window.openDatabase("hotelApp", "1.0", "HotelApp",2000);
-        almacen.db.transaction(almacen.leerPendientes,almacen.error,almacen.exitoHistorial);
+        almacen.db.transaction(almacen.leerPendientess,almacen.error,almacen.exitoHistorial);
     },
-    leerPendientes: function(tx){
+    leerPendientess: function(tx){
         //tx.executeSql('CREATE TABLE IF NOT EXISTS historial (id INTEGER PRIMARY KEY,tipoh,nump, numh, numd)');
         //tx.executeSql('INSERT INTO historial (tipoh,nump,numh,numd) values ("suite", "1", "1", "3")');
         tx.executeSql('CREATE TABLE IF NOT EXISTS reservas_pendientes (id INTEGER PRIMARY KEY,tipoh,nump, numh, numd)');
