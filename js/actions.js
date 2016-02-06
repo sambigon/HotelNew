@@ -12,7 +12,7 @@ var fn = {
         $("#nr1 div[data-role = navbar] li").tap(fn.nr1Siguiente);
         $("#nr2 div[data-role = footer] a").tap(fn.nr2EnviarRegistro);
         $("#botonHistorial").tap(fn.mostrarHistorial);
-        $("#botonHistorial").tap(fn.mostrarPendientes);
+        $("#botonPendientes").tap(fn.mostrarPendientes);
 
         //ASOCIAR EVENTO PARA SINCRONIZAR.
         document.addEventListener("online",fn.sincronizarReservasPendientes,false);
