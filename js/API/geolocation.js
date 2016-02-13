@@ -36,8 +36,8 @@ var geolocation = {
 
           // Set destination, origin and travel mode.
           var request = {
-            destination: latYLong,
-            origin: hotel,
+            destination: hotel,
+            origin: latYLong,
             travelMode: google.maps.TravelMode.DRIVING
           };
 
