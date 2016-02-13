@@ -20,7 +20,7 @@ var fn = {
 	},
     
     mostrarUbicacion: function(){
-        location.reload();
+        //location.reload();
     },    
     
     mostrarHistorial: function(){

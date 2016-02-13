@@ -254,21 +254,7 @@
     <script type="text/javascript">
         var map;
         function mapa(){
-        var latYLong = new google.maps.LatLng(19.053323,-98.222201);
-        //alert('125');
-        var opciones={
-            zoom: 13,
-            center: latYLong,
-            mapTypeId: google.maps.MapTypeId.ROADMAP            
-        };
-        //alert('126');
-        var map = new google.maps.Map(document.getElementById('canvas'), opciones);
-        var marker = new google.maps.Marker({
-           position: latYLong,
-           map: map,
-           title: "Mi ubicacion"
-        });
-         
+            geolocation.getPosition();
         }
     </script>
 	<script type="text/javascript" src="phonegap.js"></script>
