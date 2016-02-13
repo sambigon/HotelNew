@@ -2,7 +2,7 @@ var fn = {
 	init: function(){
 
 		 if(!fn.estaRegistrado()){
-		 	window.location.href = "#registro";
+		 	//window.location.href = "#registro";
 		 }
 
 		// BOTONES
@@ -20,23 +20,7 @@ var fn = {
 	},
     
     mostrarUbicacion: function(){
-        alert('123');
-        geolocation.getPosition();
-        alert(geolocation.latitud+"--"+geolocation.longitud);
-        var latYLong = new google.maps.LatLng(geolocation.latitud,geolocation.longitud);
-        alert('125');
-        var opciones={
-            zoom: 13,
-            center: latYLong,
-            mapTypeId: google.maps.MapTypeId.SATELLITE            
-        };
-        alert('126');
-        var map = new google.maps.Map(document.getElementById('canvas'), opciones);
-        var market = new google.maps.Market({
-           position: latYLong,
-           title: "Mi ubicacion"
-        });
-        alert('127');
+        location.reload();
     },    
     
     mostrarHistorial: function(){
@@ -187,6 +171,6 @@ var fn = {
 	},
 };
 
-$(fn.deviceready);
+//$(fn.deviceready);
 
-//$(fn.init);
+$(fn.init);

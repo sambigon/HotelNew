@@ -206,7 +206,7 @@
     </div>
     
     <div id="pendientes" data-role="page">
-        <div data-role="header"
+        <div data-role="header">
 			<h1>Reservaciones Pendientes</h1>
 			<a href="#" data-rel="back">
 				Atrás
@@ -227,7 +227,7 @@
         </div>
     </div>
     
-    <div id="ubicacion" data-role="page">
+    <div data-role="page" id="ubicacion">
         <div data-role="header">
 			<h1>Ubicacion</h1>
 			<a href="#" data-rel="back">
@@ -240,10 +240,42 @@
         </div>
     </div>
 
+    <!--<div data-role="page" id="ubicacion">
+		<div data-role="header">
+			<h1>ubicacion</h1>
+			<a href="#" data-rel="back">Atrás</a>
+		</div>
+		<div class="mapa">
+			<div id="canvas">
+			</div>
+		</div>
+	</div>-->
 
-	<script type="text/javascript" src="phonegap.js">
-	</script>
-    <script type="text/javascript" src="https://maps.google.com/maps/api/js?sensor=true">
+    <script type="text/javascript">
+        var map;
+        function mapa(){
+        var latYLong = new google.maps.LatLng(19.053323,-98.222201);
+        alert('125');
+        var opciones={
+            zoom: 13,
+            center: latYLong,
+            mapTypeId: google.maps.MapTypeId.ROADMAP            
+        };
+        //alert('126');
+        var map = new google.maps.Map(document.getElementById('canvas'), opciones);
+        var marker = new google.maps.Marker({
+           position: latYLong,
+           map: map,
+           title: "Mi ubicacion"
+        });
+         
+        }
+    </script>
+	<script type="text/javascript" src="phonegap.js"></script>
+    <!--<script type="text/javascript" src="https://maps.google.com/maps/api/js">
+    </script>--->
+    <script async defer
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDsyGa_tS6Poom9liMlMNF_1Tuz1NxNI9c&callback=mapa">
     </script>
 	<script type="text/javascript" src="js/jquery-1.11.3.min.js">
 	</script>
