@@ -21,6 +21,10 @@ var fn = {
     
     mostrarUbicacion: function(){
         //location.reload();
+        function mapa(){
+            geolocation.getPosition();
+        }
+        $.getScript('https://maps.googleapis.com/maps/api/js?key=AIzaSyDsyGa_tS6Poom9liMlMNF_1Tuz1NxNI9c&callback=mapa');
     },    
     
     mostrarHistorial: function(){
