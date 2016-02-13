@@ -2,7 +2,7 @@ var fn = {
 	init: function(){
 
 		 if(!fn.estaRegistrado()){
-		 	//window.location.href = "#registro";
+		 	window.location.href = "#registro";
 		 }
 
 		// BOTONES
@@ -17,6 +17,9 @@ var fn = {
 
         //ASOCIAR EVENTO PARA SINCRONIZAR.
         document.addEventListener("online",fn.sincronizarReservasPendientes,false);
+        
+        //poner fecha
+        fn.ponerFecha();
 	},
     
     mostrarUbicacion: function(){
@@ -28,14 +31,17 @@ var fn = {
     },    
     
     mostrarHistorial: function(){
+        $.mobile.LOADING("show");
         almacen.registrosHistorial();
     },
 
     mostrarPendientes: function(){
+        $.mobile.LOADING("show");
         almacen.registrosPendientes();
     },
     
     nr2EnviarRegistro : function(){
+        $.mobile.LOADING("show");
         var tipoHabitacion = $("#nr1").attr("th");
         var numPersonas = $("#resPer").val();
         var numHabitaciones = $("#resHab").val();
@@ -89,6 +95,7 @@ var fn = {
 				alert("Error al guardar reserva en el servidor");
 			}
 		});
+        $.mobile.LOADING("hide");
     },
 
 
@@ -123,6 +130,7 @@ var fn = {
 	},
 
 	registar: function(){
+        $.mobile.LOADING("show");
 		// OBTENER LOS DATOS
 		var nombre = $("#regNom").val();
 		var email  = $("#regEmail").val();
@@ -161,6 +169,7 @@ var fn = {
 				tel: tel
 			},
 			error: function(){
+                $.mobile.LOADING("hide");
 				alert("Error de conexion con AJAX");
 			}
 
@@ -171,8 +180,26 @@ var fn = {
 			}else{
 				navigator.notification.alert("Error al enviar datos al servidor, Mensaje: "+msg);
 			}
+            $.mobile.LOADING("hide");
 		});
+        
 	},
+    ponerFecha: function(){
+        var hoy= new Date();
+        var dia= hoy.getDate();
+        var mes= hoy.getMonth()+1;
+        var anio= hoy.getFullYear();
+    
+        if(dia< 10){
+            dia="0"+ dia;
+        }
+
+        if(mes<10){
+            mes="0"+ mes;
+        }
+        hoy=dia + "-" + mes + "-" + anio;
+        $(".fecha").html(hoy);
+    },
 };
 
 $(fn.deviceready);

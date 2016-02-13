@@ -15,6 +15,7 @@ var almacen = {
   },
   error: function(error){
       alert("Error al guardar reserva: " + error.message)
+      $.mobile.LOADING("hide");
   },
     tablaReservas: function(tx){//tx es el objeto que permite manejar la base de datos
         tx.executeSql('CREATE TABLE IF NOT EXISTS reservas_pendientes (id INTEGER PRIMARY KEY,tipoh,nump, numh, numd)');
@@ -22,6 +23,7 @@ var almacen = {
     },
     confirmarlaReserva: function(){
         alert('Reservar guardada en el dispositivo, esperando conexión para sincronizacion con el servidor');
+        $.mobile.LOADING("hide");
     },
     agregarHistorial: function(th,np,nh,nd){
         almacen.db = window.openDatabase("hotelApp", "1.0", "HotelApp",2000);
@@ -120,6 +122,7 @@ var almacen = {
     
     exitoHistorial: function(){
         alert("Se debeo mostrar historial");
+        $.mobile.LOADING("show");
     }
 
 
