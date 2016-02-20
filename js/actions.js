@@ -15,6 +15,7 @@ var fn = {
         $("#botonPendientes").tap(fn.mostrarPendientes);
         $("#botonUbicacion").tap(fn.mostrarUbicacion);
         $("#boton-galeria").tap(fn.llenarGaleria);
+        $(".foto-galeria").tap(fn.mostrarGaleria);
         
 
         //ASOCIAR EVENTO PARA SINCRONIZAR.
@@ -202,8 +203,8 @@ var fn = {
         hoy=dia + "-" + mes + "-" + anio;
         $(".fecha").html(hoy);
     },
+    
     llenarGaleria: function(){
-        //alert('123');
             $.ajax({
 					type: "POST",
 					url: "http://ismaelharo.com.mx/phonegap/fotos.php",
@@ -220,66 +221,23 @@ var fn = {
             var obj = jQuery.parseJSON(msg);
             $impar=1;
                 Object.keys(obj).forEach(function(key) {
-                    console.log(key, obj[key]);
+                    //console.log(key, obj[key]);
                     if($impar==1){
-                     $("#gallery" ).append("<div class='ui-block-a'><img src='"+obj[key]+"'/></div>" );    
+                     $("#gallery" ).append("<div class='ui-block-a'><img class='foto-galeria' src='"+obj[key]+"'/></div>" );    
                      $impar=0;
                 }
                 else{
-                    $("#gallery" ).append( "<div class='ui-block-b'><img src='"+obj[key]+"'/></div>" );    
+                    $("#gallery" ).append( "<div class='ui-block-b'><img class='foto-galeria' src='"+obj[key]+"'/></div>" );    
                     $impar=1;
                 }
                 });
-                
-            /*for	(index = 0; index < msg.length; index++) {
-                //alert(msg[index]);
-                if($impar==1){
-                     $("#gallery" ).add( "<div class='ui-block-a'>"+msg[index]+"</div>" );    
-                     $impar=0;
-                }
-                else{
-                    $("#gallery" ).add( "<div class='ui-block-b'>"+msg[index]+"</div>" );    
-                    $impar=1;
-                }
-                
-                
-            }*/
-
 		});
-        /*.done(function(msg){
-            //alert(msg);
-            $impar=1;
-            for	(index = 0; index < msg.length; index++) {
-                alert(msg[index]);
-                if($impar==1){
-                     $( "gallery" ).add( "<div class='ui-block-a'>"+msg[index]+"</div>" );    
-                     $impar=0;
-                }
-                else{
-                    $( "gallery" ).add( "<div class='ui-block-b'>"+msg[index]+"</div>" );    
-                    $impar=1;
-                }
-                
-                
-            }
-
-		});*/
         
-					/*success: function(html){    
-						if(html=='true')    {
-							window.location="dashboard.php";
-						}
-						else{
-							$("#error").css('display', 'inline', 'important');
-							$("#error").html("<img src='img/symbol_error.png' height='30' width='30' />Correo o contrase&ntilde;a inv&aacute;lidos<br />");
-						}
-					},
-					beforeSend:function(){
-						$("#error").css('display', 'inline', 'important');
-						$("#error").html("<img src='img/loading_spinner.gif' /> Cargando...")
-					}
-				});*/
-        
+    },
+    mostrarGaleria: function(){
+        var source = $(this);
+        $("#foto").html(source);
+        $.mobile.changePage($("#foto_individual"));
     }
 };
 
