@@ -15,7 +15,7 @@ var fn = {
         $("#botonPendientes").tap(fn.mostrarPendientes);
         $("#botonUbicacion").tap(fn.mostrarUbicacion);
         $("#boton-galeria").tap(fn.llenarGaleria);
-        $(".foto-galeria").tap(fn.mostrarGaleria);
+        
         
 
         //ASOCIAR EVENTO PARA SINCRONIZAR.
@@ -231,16 +231,17 @@ var fn = {
                     $impar=1;
                 }
                 });
+                $(".foto-galeria").tap(fn.mostrarGaleria);
 		});
         
     },
     mostrarGaleria: function(){
-        var source = $(this);
-        $("#foto").html(source);
+        
+        $("#foto").html($(this).clone());
         $.mobile.changePage($("#foto_individual"));
     }
 };
 
-$(fn.deviceready);
+//$(fn.deviceready);
 
-//$(fn.init);
+$(fn.init);
